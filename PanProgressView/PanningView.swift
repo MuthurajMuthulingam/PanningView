@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum Direction {
+public enum MMDirection {
     case left
     case top
     case right
@@ -16,12 +16,12 @@ public enum Direction {
     case none
 }
 
-public struct Movement {
-    var vertical:CGFloat
-    var horizontal:CGFloat
+public struct MMMovement {
+    var vertical: CGFloat
+    var horizontal: CGFloat
 }
 
-public struct Pan {
+public struct MMPan {
     var direction:Direction
     var movement:Movement
     var distance:CGFloat
@@ -31,7 +31,7 @@ public typealias PanCompletion = ((_ panView:PanningView)->Void)
 public typealias PanProgressCompletion = ((_ panView:PanningView, _ pan:Pan)->Void)
 
 @IBDesignable
-public class PanningView: UIView {
+public class MMPanningView: UIView {
 
     @IBInspectable private var panningEnabled:Bool
     
@@ -75,7 +75,7 @@ public class PanningView: UIView {
     }
 }
 
-
+// MARK: - CGPoint Helpers
 extension CGPoint {
     public func distance(To point:CGPoint) -> CGFloat {
         let xDist = point.x - self.x
